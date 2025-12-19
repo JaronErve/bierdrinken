@@ -4,27 +4,47 @@
 <meta charset="UTF-8">
 <title>Aftellen tot 16:00</title>
 <style>
-  body { font-family: Arial, sans-serif; text-align: center; margin-top: 50px; }
-  #countdown { font-size: 48px; color: #333; }
+  body { 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+    margin-top: 50px; 
+    background-color: #f9f9f9;
+  }
+  #countdown { 
+    font-size: 48px; 
+    color: #333; 
+    margin-top: 20px;
+  }
+  img {
+    width: 200px; /* pas grootte aan */
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
 </style>
 </head>
 <body>
 
 <h1>Aftellen tot 16:00</h1>
+
+<!-- Afbeelding -->
+<img src="avatars-000107390450-4ix0lu-t1080x1080.jpg" alt="Roy Schuppert">
+
+<!-- Afteller -->
 <div id="countdown">Laden...</div>
 
 <script>
 function updateCountdown() {
     const now = new Date();
     const target = new Date();
-    target.setHours(16, 0, 0, 0); // zet target op vandaag 16:00
+    target.setHours(16, 0, 0, 0);
 
     if (now > target) {
         document.getElementById('countdown').innerText = "Het is 16:00!";
         return;
     }
 
-    const diff = target - now; // verschil in milliseconden
+    const diff = target - now;
     const hours = Math.floor(diff / (1000 * 60 * 60));
     const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((diff % (1000 * 60)) / 1000);
@@ -33,9 +53,8 @@ function updateCountdown() {
         hours + " uur " + minutes + " min " + seconds + " sec";
 }
 
-// update elke seconde
 setInterval(updateCountdown, 1000);
-updateCountdown(); // directe eerste update
+updateCountdown();
 </script>
 
 </body>
